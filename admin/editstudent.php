@@ -43,9 +43,9 @@
 			move_uploaded_file($_FILES['photo']['tmp_name'], 'images/'.$photo);
 			unlink('images/'.$oldPhoto);
 		}	
-  		header('Location: index.php?page=all-student&edit=success');
+  		
   	}else{
-  		header('Location: index.php?page=all-student&edit=error');
+  		$datainsert['inserterror'] = '<p style="color: green;">Student cannot be Updated!</p>';
   	}
   }
 ?>
@@ -66,7 +66,29 @@
 		}
 	 ?>
 <div class="row">
+
 <div class="col-sm-6">
+    <?php if (isset($datainsert)) {?>
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast fade" data-autohide="true" data-animation="true" data-delay="2000">
+      <div class="toast-header">
+        <strong class="mr-auto">Student Edit Alert</strong>
+        <small><?php echo date('d-M-Y'); ?></small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        <?php 
+            if (isset($datainsert['insertsucess'])) {
+                echo $datainsert['insertsucess'];
+            }
+            if (isset($datainsert['inserterror'])) {
+                echo $datainsert['inserterror'];
+            }
+        ?>
+      </div>
+    </div>
+    <?php } ?>
 	<form enctype="multipart/form-data" method="POST" action="">
 		<div class="form-group">
 		    <label for="name">Student Name</label>

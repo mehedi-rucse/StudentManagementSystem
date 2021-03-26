@@ -51,15 +51,19 @@ if (!isset($_SESSION['user_login'])) {
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="index.php?page=dashboard" class="list-group-item list-group-item-action active">
-               <i class="fas fa-tachometer-alt"></i> Dashboard
-              </a>
+              <a href="index.php?page=dashboard" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
               <a href="index.php?page=add-student" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Student</a>
               <a href="index.php?page=all-student" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Students</a>
               <a href="index.php?page=add-course" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Course</a>
               <a href="index.php?page=all-course" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Courses</a>
               <a href="index.php?page=add-department" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Department</a>
               <a href="index.php?page=all-department" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Departments</a>
+              <a href="index.php?page=add-hall" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Hall</a>
+              <a href="index.php?page=all-hall" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Halls</a>
+              <a href="index.php?page=add-notice" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Notice</a>
+              <a href="index.php?page=all-notice" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Notices</a>
+              <a href="index.php?page=add-payment" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Payment</a>
+              <a href="index.php?page=all-payment" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Payments</a>
               <a href="index.php?page=all-users" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Users</a>
               <a href="index.php?page=user-profile" class="list-group-item list-group-item-action"><i class="fa fa-user"></i> User Profile</a>
             </div>
@@ -72,7 +76,6 @@ if (!isset($_SESSION['user_login'])) {
                     }else{
                       $page = 'dashboard.php';
                     }
-
                     if (file_exists($page)) {
                       require_once $page;
                     }else{
