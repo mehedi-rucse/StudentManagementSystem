@@ -36,7 +36,7 @@
                        Select
                      </option>
                      <option value="1st">
-                       1St
+                       1st
                      </option>
                      <option value="2nd">
                        2nd

@@ -31,7 +31,7 @@ if (!isset($_SESSION['user_login'])) {
   </head>
   <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.php"><i class="fas fa-chart-line fa-3x"></i></a>
+  <a class="navbar-brand" href="index.php"><i class="fas fa-home fa-3x"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -54,16 +54,20 @@ if (!isset($_SESSION['user_login'])) {
               <a href="index.php?page=dashboard" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
               <a href="index.php?page=add-student" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Student</a>
               <a href="index.php?page=all-student" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Students</a>
-              <a href="index.php?page=add-course" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Course</a>
-              <a href="index.php?page=all-course" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Courses</a>
-              <a href="index.php?page=add-department" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Department</a>
-              <a href="index.php?page=all-department" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Departments</a>
-              <a href="index.php?page=add-hall" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Hall</a>
-              <a href="index.php?page=all-hall" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Halls</a>
-              <a href="index.php?page=add-notice" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Notice</a>
-              <a href="index.php?page=all-notice" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Notices</a>
-              <a href="index.php?page=add-payment" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Payment</a>
-              <a href="index.php?page=all-payment" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Payments</a>
+              <a href="index.php?page=add-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> Add Course</a>
+              <a href="index.php?page=all-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> All Courses</a>
+              <a href="index.php?page=add-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> Add Department</a>
+              <a href="index.php?page=all-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> All Departments</a>
+              <a href="index.php?page=add-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> Add Hall</a>
+              <a href="index.php?page=all-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> All Halls</a>
+              <a href="index.php?page=add-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> Add Result Id</a>
+              <a href="index.php?page=all-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> All Result Ids</a>
+              <a href="index.php?page=add-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> Add Mark</a>
+              <a href="index.php?page=all-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> All Marks</a>
+              <a href="index.php?page=add-notice" class="list-group-item list-group-item-action"><i class="fa fa-bell"></i> Add Notice</a>
+              <a href="index.php?page=all-notice" class="list-group-item list-group-item-action"><i class="fa fa-comments"></i> All Notices</a>
+              <a href="index.php?page=add-payment" class="list-group-item list-group-item-action"><i class="fas fa-dollar-sign"></i> Add Payment</a>
+              <a href="index.php?page=all-payment" class="list-group-item list-group-item-action"><i class="fas fa-search-dollar"></i> All Payments</a>
               <a href="index.php?page=all-users" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Users</a>
               <a href="index.php?page=user-profile" class="list-group-item list-group-item-action"><i class="fa fa-user"></i> User Profile</a>
             </div>
