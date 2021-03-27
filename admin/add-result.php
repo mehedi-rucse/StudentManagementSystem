@@ -63,16 +63,24 @@
             <label for="roll_id">Student Roll</label>
             <input name="roll_id" type="text" class="form-control" id="roll_id" value="<?= isset($roll_id)? $roll_id: '' ; ?>" required="">
         </div>
+        
         <div class="form-group">
-            <label for="year">Year</label>
-            <input name="year" type="text" class="form-control" id="year" value="<?= isset($year)? $year: '' ; ?>" required="">
+            <label for="year">Year</label> 
+            <select class="form-control" name="year">
+                     <option value="1st"> 1st </option>
+                     <option value="2nd"> 2nd </option>
+                     <option value="3rd"> 3rd </option>
+                     <option value="4th"> 4th </option>      
+            </select>
         </div>
         <div class="form-group">
             <label for="semester">Semester</label>
-            <input name="semester" type="text" class="form-control" id="semester" value="<?= isset($semester)? $semester: '' ; ?>" required="">
+            <select class="form-control" name="semester">
+                     <option value="1st"> 1st </option>
+                     <option value="2nd"> 2nd </option>      
+            </select>
         </div>
-        
-        
+
         <div class="form-group text-center">
             <input name="addresultid" value="Add Result Id" type="submit" class="btn btn-danger">
         </div>

@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="container"><br>
-      <a class="btn btn-primary float-right" href="admin/login.php">Login</a>
+      <a class="btn btn-primary float-right" href="admin/login.php">Admin Login</a>
           <h1 class="text-center">Welcome to Student Management System!</h1><br>
 
           <div class="row">
@@ -26,40 +26,13 @@
                   <p class="text-center">Student Information</p>
                 </th>
               </tr>
-              <tr>
-                <td>
-                   <p>Choose Class</p>
-                </td>
-                <td>
-                   <select class="form-control" name="choose">
-                     <option value="">
-                       Select
-                     </option>
-                     <option value="1st">
-                       1st
-                     </option>
-                     <option value="2nd">
-                       2nd
-                     </option>
-                     <option value="3rd">
-                       3rd
-                     </option>
-                     <option value="4th">
-                       4th
-                     </option>
-                     <option value="5th">
-                       5th
-                     </option>
-                   </select>
-                </td>
-              </tr>
 
               <tr>
                 <td>
                   <p><label for="roll">Roll No</label></p>
                 </td>
                 <td>
-                  <input class="form-control" type="text" pattern="[0-9]{6}" id="roll" placeholder="Roll Num.." name="roll">
+                  <input class="form-control" type="text"  id="roll" placeholder="Roll Num.." name="roll">
                 </td>
               </tr>
               <tr>
@@ -73,49 +46,59 @@
           </div>
         <br>
         <?php if (isset($_POST['showinfo'])) {
-          $choose= $_POST['choose'];
           $roll = $_POST['roll'];
-          if (!empty($choose && $roll)) {
-            $query = mysqli_query($db_con,"SELECT * FROM `student_info` WHERE `roll`='$roll' AND `class`='$choose'");
+          if (!empty($roll)) {
+            $query = mysqli_query($db_con,"SELECT * FROM `about_me` WHERE `roll_id`='$roll'");
             if (!empty($row=mysqli_fetch_array($query))) {
-              if ($row['roll']==$roll && $choose==$row['class']) {
-                $stroll= $row['roll'];
-                $stname= $row['name'];
-                $stclass= $row['class'];
-                $city= $row['city'];
-                $photo= $row['photo'];
-                $pcontact= $row['pcontact'];
+              if ($row['roll_id']==$roll) {
+                
+                $name = $row['name'];
+                $roll = $row['roll_id'];
+                $name_father = $row['name_father'];
+                $name_mother = $row['name_mother'];
+                $number = $row['number'];
+                $blood_group =$row['blood_group'];
+                $session = $row['session'];
+                $gender = $row['gender'];
+                $emergency_number = $row['emergency_number'];
+                $emergency_number_holder = $row['emergency_number_holder'];
+                $photo= $row['photo']; 
+                $date_of_birth = $row['date_of_birth'];
               ?>
         <div class="row">
-          <div class="col-sm-6 offset-sm-3">
+          <div class="col-sm-7 offset-sm-3">
             <table class="table table-bordered">
               <tr>
-                <td rowspan="5"><h3>Student Info</h3><img class="img-thumbnail" src="admin/images/<?= isset($photo)?$photo:'';?>" width="250px"></td>
-                <td>Name</td>
-                <td><?= isset($stname)?$stname:'';?></td>
+                <td rowspan="6"><h3>Student Info</h3><img class="img-thumbnail" src="admin/images/<?= isset($photo)?$photo:'';?>" width="250px"><h3><?= isset($name)?$name:'';?></h3> </td>
               </tr>
               <tr>
                 <td>Roll</td>
-                <td><?= isset($stroll)?$stroll:'';?></td>
+                <td><?= isset($roll)?$roll:'';?></td>
               </tr>
               <tr>
-                <td>Class</td>
-                <td><?= isset($stclass)?$stclass:'';?></td>
+                <td>Father's Name</td>
+                <td><?= isset($name_father)?$name_father:'';?></td>
               </tr>
               <tr>
-                <td>City</td>
-                <td><?= isset($city)?$city:'';?></td>
+                <td>Mother's Name</td>
+                <td><?= isset($name_mother)?$name_mother:'';?></td>
               </tr>
               <tr>
-                <td>Submit Date</td>
-                <td><?= isset($pcontact)?$pcontact:'';?></td>
+                <td>Phone</td>
+                <td><?= isset($number)?$number:'';?></td>
               </tr>
+              <tr>
+                <td>Date of Birth</td>
+                <td><?= isset($date_of_birth)?$date_of_birth:'';?></td>
+              </tr>
+              
+              
             </table>
           </div>
         </div>  
       <?php 
           }else{
-                echo '<p style="color:red;">Please Input Valid Roll & Email</p>';
+                echo '<p style="color:red;">Please Input Valid Roll</p>';
               }
             }else{
               echo '<p style="color:red;">Your Input Doesn\'t Match!</p>';

@@ -19,7 +19,7 @@
     
  
     $query = "INSERT INTO `student_notice` (`student_notice_id`, `department_code`, `notice_year`, `notice_semester`, `type_of_notice`, `title`, `details`, `due_date`) 
-              VALUES (NULL,'$department_code',' $notice_year','$notice_semester','$type_of_notice','$title','$details','$due_date');";
+              VALUES (NULL,'$department_code','$notice_year','$notice_semester','$type_of_notice','$title','$details','$due_date');";
  
     if (mysqli_query($db_con,$query)) {
         $datainsert['insertsucess'] = '<p style="color: green;">notice Inserted!</p>';
@@ -68,15 +68,29 @@
         </div>
         <div class="form-group">
             <label for="notice_year">Year</label>
-            <input name="notice_year" type="text" value="<?= isset($notice_year)? $notice_year: '' ; ?>" class="form-control"  id="notice_year"  placeholder="1st/2nd/3rd/4th"  required="">
+            <select class="form-control" name="notice_year">
+                     <option value="1st"> 1st </option>
+                     <option value="2nd"> 2nd </option>
+                     <option value="3rd"> 3rd </option>
+                     <option value="4th"> 4th </option>       
+            </select>
         </div>
         <div class="form-group">
             <label for="notice_semester">Semester</label>
-            <input name="notice_semester" type="text" class="form-control" id="notice_semester" value="<?= isset($notice_semester)? $notice_semester: '' ; ?>" placeholder="1st/2nd" required="">
+            <select class="form-control" name="notice_semester">
+                     <option value="1st"> 1st </option>
+                     <option value="2nd"> 2nd </option>      
+            </select>
         </div>
         <div class="form-group">
             <label for="type_of_notice">Type</label>
-            <input name="type_of_notice" type="text" class="form-control" id="type_of_notice" value="<?= isset($type_of_notice)? $type_of_notice: '' ; ?>" required="">
+            <select class="form-control" name="type_of_notice">
+                     <option value="Exam"> Exam </option>
+                     <option value="Payment"> Payment </option>
+                     <option value="Result"> Result </option>
+                     <option value="Vacation">Vacation </option>
+                     <option value="Other's"> Others </option>      
+            </select>
         </div>
       
         <div class="form-group">

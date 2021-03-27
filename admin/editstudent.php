@@ -13,7 +13,7 @@
 
   if (isset($_POST['updatestudent'])) {
   	$name = $_POST['name'];
-    $roll = $_POST['roll'];
+    $roll_id = $_POST['roll_id'];
     $name_father = $_POST['name_father'];
     $name_mother = $_POST['name_mother'];
     $number = $_POST['number'];
@@ -29,14 +29,14 @@
   		 $photo = $_FILES['photo']['name'];
 	  	 $photo = explode('.', $photo);
 		 $photo = end($photo);
-		 $photo = $roll.date('Y-m-d-m-s').'.'.$photo; 
+		 $photo = $roll_id.date('Y-m-d-m-s').'.'.$photo; 
 		
   	}else{
   		$photo = $oldPhoto;
   	}
   	
 
-  	$query = "UPDATE `about_me` SET`roll`='$roll', `name`='$name', `name_father`='$name_father', `name_mother`='$name_mother', `number`='$number', `blood_group`='$blood_group', `session`='$session', `gender`='$gender', `emergency_number`='$emergency_number', `emergency_number_holder`='$emergency_number_holder',`photo`='$photo', `date_of_birth`='$date_of_birth' WHERE `id`= $id";
+  	$query = "UPDATE `about_me` SET`roll_id`='$roll_id', `name`='$name', `name_father`='$name_father', `name_mother`='$name_mother', `number`='$number', `blood_group`='$blood_group', `session`='$session', `gender`='$gender', `emergency_number`='$emergency_number', `emergency_number_holder`='$emergency_number_holder',`photo`='$photo', `date_of_birth`='$date_of_birth' WHERE `about_me_id`= $id";
   	if (mysqli_query($db_con,$query)) {
   		$datainsert['insertsucess'] = '<p style="color: green;">Student Updated!</p>';
 		if (!empty($_FILES['photo']['name'])) {
@@ -60,7 +60,7 @@
 
 	<?php
 		if (isset($id)) {
-			$query = "SELECT  `id`,`roll`, `name`, `name_father`, `name_mother`, `number`, `blood_group`, `session`, `gender`, `emergency_number`, `emergency_number_holder`,`photo`, `date_of_birth` FROM `about_me` WHERE `id`=$id";
+			$query = "SELECT  `about_me_id`,`roll_id`, `name`, `name_father`, `name_mother`, `number`, `blood_group`, `session`, `gender`, `emergency_number`, `emergency_number_holder`,`photo`, `date_of_birth` FROM `about_me` WHERE `about_me_id`=$id";
 			$result = mysqli_query($db_con,$query);
 			$row = mysqli_fetch_array($result);
 		}
@@ -95,8 +95,8 @@
 		    <input name="name" type="text" class="form-control" id="name" value="<?php echo $row['name']; ?>" required="">
 	  	</div>
 	  	<div class="form-group">
-		    <label for="roll">Student Roll</label>
-		    <input name="roll" type="text" class="form-control" id="roll" value="<?php echo $row['roll']; ?>" required="">
+		    <label for="roll_id">Student Roll</label>
+		    <input name="roll_id" type="text" class="form-control" id="roll_id" value="<?php echo $row['roll_id']; ?>" required="">
 	  	</div>
 		<div class="form-group">
             <label for="name_father">Father Name</label>

@@ -74,17 +74,16 @@
         </div>
         <div class="form-group">
             <label for="notice_year">Year</label>
-            <input name="notice_year" type="text" value="<?php echo $row['notice_year']; ?>" class="form-control"  id="notice_year"  placeholder="1st/2nd/3rd/4th"  required="">
+            <input name="notice_year" type="text" value="<?php echo $row['notice_year']; ?>" class="form-control"  id="notice_year"  placeholder="Enter :1st/2nd/3rd/4th"  required="">
         </div>
         <div class="form-group">
             <label for="notice_semester">Semester</label>
-            <input name="notice_semester" type="text" class="form-control" id="notice_semester" value="<?php echo $row['notice_semester']; ?>" placeholder="1st/2nd" required="">
+            <input name="notice_semester" type="text" class="form-control" id="notice_semester" value="<?php echo $row['notice_semester']; ?>" placeholder="Enter :1st/2nd" required="">
         </div>
         <div class="form-group">
             <label for="type_of_notice">Type</label>
             <input name="type_of_notice" type="text" class="form-control" id="type_of_notice" value="<?php echo $row['type_of_notice']; ?>" required="">
         </div>
-      
         <div class="form-group">
             <label for="title">Title</label>
             <input name="title" type="text" class="form-control" id="title" value="<?php echo $row['title']; ?>" required="">

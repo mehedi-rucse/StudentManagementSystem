@@ -73,8 +73,12 @@
             <input name="cgpa" type="text" class="form-control" id="cgpa" value="<?= isset($cgpa)? $cgpa: '' ; ?>"placeholder="Enter cgpa" required="">
         </div>
         <div class="form-group">
-            <label for="tried">Tried</label>
-            <input name="tried" type="text" class="form-control" id="tried" value="<?= isset($tried)? $tried: '' ; ?>" placeholder="0-2" required="">
+            <label for="tried">Tried</label> 
+            <select class="form-control" name="tried">
+                     <option value="0"> 0 </option>
+                     <option value="1"> 1 </option>
+                     <option value="2"> 2 </option>
+            </select>
         </div>
       
         

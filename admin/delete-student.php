@@ -4,7 +4,7 @@
 if (isset($_SESSION['user_login'])) {
 	$id = base64_decode($_GET['id']);
 	$photo = base64_decode($_GET['photo']);
-	if(mysqli_query($db_con,"DELETE FROM `about_me` WHERE `id` = '$id'")){
+	if(mysqli_query($db_con,"DELETE FROM `about_me` WHERE `about_me_id` = '$id'")){
 		unlink('images/'.$photo);
 		$datadelete['deletesucess'] = '<p style="color: green;">Student Deleted!</p>';
 	}else{

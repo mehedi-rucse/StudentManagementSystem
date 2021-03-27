@@ -10,7 +10,7 @@
  
   if (isset($_POST['addstudent'])) {
     $name = $_POST['name'];
-    $roll = $_POST['roll'];
+    $roll_id = $_POST['roll_id'];
     $name_father = $_POST['name_father'];
     $name_mother = $_POST['name_mother'];
     $number = $_POST['number'];
@@ -21,12 +21,12 @@
     $emergency_number_holder = $_POST['emergency_number_holder'];
     $photo = explode('.', $_FILES['photo']['name']);
   	$photo = end($photo); 
-  	$photo = $roll.date('Y-m-d-m-s').'.'.$photo;
+  	$photo = $roll_id.date('Y-m-d-m-s').'.'.$photo;
     $date_of_birth = $_POST['date_of_birth'];
     
  
-    $query = "INSERT INTO `about_me` ( `id`,`roll`, `name`, `name_father`, `name_mother`, `number`, `blood_group`, `session`, `gender`, `emergency_number`, `emergency_number_holder`,`photo`, `date_of_birth`) 
-              VALUES (NULL,'$roll','$name','$name_father','$name_mother', '$number','$blood_group','$session','$gender','$emergency_number','$emergency_number_holder', '$photo','$date_of_birth');";
+    $query = "INSERT INTO `about_me` ( `about_me_id`,`roll_id`, `name`, `name_father`, `name_mother`, `number`, `blood_group`, `session`, `gender`, `emergency_number`, `emergency_number_holder`,`photo`, `date_of_birth`) 
+              VALUES (NULL,'$roll_id','$name','$name_father','$name_mother', '$number','$blood_group','$session','$gender','$emergency_number','$emergency_number_holder', '$photo','$date_of_birth');";
  
     if (mysqli_query($db_con,$query)) {
         $datainsert['insertsucess'] = '<p style="color: green;">Student Inserted!</p>';
@@ -74,8 +74,8 @@
             <input name="name" type="text" class="form-control" id="name" value="<?= isset($name)? $name: '' ; ?>" required="">
         </div>
         <div class="form-group">
-            <label for="roll">Student Roll</label>
-            <input name="roll" type="text" value="<?= isset($roll)? $roll: '' ; ?>" class="form-control"  id="roll" required="">
+            <label for="roll_id">Student Roll</label>
+            <input name="roll_id" type="text" value="<?= isset($roll_id)? $roll_id: '' ; ?>" class="form-control"  id="roll_id" required="">
         </div>
         <div class="form-group">
             <label for="name_father">Father Name</label>
@@ -103,7 +103,6 @@
             <label for="gender">Gender</label>
             <input name="gender" type="text" class="form-control" id="gender" value="<?= isset($gender)? $gender: '' ; ?>" placeholder="Male/Female/Other" required="">
         </div>
- 
  
         <div class="form-group">
             <label for="emergency_number">Emergency Contact NO</label>
