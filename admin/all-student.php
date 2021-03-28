@@ -61,6 +61,8 @@
       <th scope="col">Mobile</th>
       <th scope="col">Blood Group</th>
       <th scope="col">Session</th>
+      <th scope="col">Department Code</th>
+      <th scope="col">Hall Code</th>
       <th scope="col">Gender</th>
       <th scope="col">Emergency Contact</th>
       <th scope="col">Relation</th>
@@ -84,6 +86,8 @@
           <td>'.$result['number'].'</td>
           <td>'.$result['blood_group'].'</td>
           <td>'.$result['session'].'</td>
+          <td>'.$result['department_code'].'</td>
+          <td>'.$result['hall_code'].'</td>
           <td>'.$result['gender'].'</td>
           <td>'.$result['emergency_number'].'</td>
           <td>'.$result['emergency_number_holder'].'</td>

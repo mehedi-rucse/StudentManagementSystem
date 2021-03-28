@@ -15,6 +15,7 @@
   <body>
     <div class="container"><br>
       <a class="btn btn-primary float-right" href="admin/login.php">Admin Login</a>
+      <a class="btn btn-primary float-left" href="login.php">Student Login</a>
           <h1 class="text-center">Welcome to Student Management System!</h1><br>
 
           <div class="row">

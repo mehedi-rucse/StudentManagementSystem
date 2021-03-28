@@ -1,0 +1,30 @@
+.notices {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    position: relative;
+    margin: auto;
+}
+
+.notices td,
+.notices th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.notices tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.notices tr:hover {
+    background-color: #ddd;
+}
+
+.notices th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #1faee7;
+    color: white;
+}

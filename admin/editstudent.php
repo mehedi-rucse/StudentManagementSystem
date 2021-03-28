@@ -19,6 +19,8 @@
     $number = $_POST['number'];
     $blood_group =$_POST['blood_group'];
     $session = $_POST['session'];
+    $department_code = $_POST['department_code'];
+    $hall_code = $_POST['hall_code'];
     $gender = $_POST['gender'];
     $emergency_number = $_POST['emergency_number'];
     $emergency_number_holder = $_POST['emergency_number_holder'];
@@ -36,7 +38,7 @@
   	}
   	
 
-  	$query = "UPDATE `about_me` SET`roll_id`='$roll_id', `name`='$name', `name_father`='$name_father', `name_mother`='$name_mother', `number`='$number', `blood_group`='$blood_group', `session`='$session', `gender`='$gender', `emergency_number`='$emergency_number', `emergency_number_holder`='$emergency_number_holder',`photo`='$photo', `date_of_birth`='$date_of_birth' WHERE `about_me_id`= $id";
+  	$query = "UPDATE `about_me` SET`roll_id`='$roll_id', `name`='$name', `name_father`='$name_father', `name_mother`='$name_mother', `number`='$number', `blood_group`='$blood_group', `session`='$session', `department_code` = '$department_code', `hall_code` = '$hall_code', `gender`='$gender', `emergency_number`='$emergency_number', `emergency_number_holder`='$emergency_number_holder',`photo`='$photo', `date_of_birth`='$date_of_birth' WHERE `about_me_id`= $id";
   	if (mysqli_query($db_con,$query)) {
   		$datainsert['insertsucess'] = '<p style="color: green;">Student Updated!</p>';
 		if (!empty($_FILES['photo']['name'])) {
@@ -45,7 +47,7 @@
 		}	
   		
   	}else{
-  		$datainsert['inserterror'] = '<p style="color: green;">Student cannot be Updated!</p>';
+  		$datainsert['inserterror'] = '<p style="color: red;">Student cannot be Updated!</p>';
   	}
   }
 ?>
@@ -60,7 +62,7 @@
 
 	<?php
 		if (isset($id)) {
-			$query = "SELECT  `about_me_id`,`roll_id`, `name`, `name_father`, `name_mother`, `number`, `blood_group`, `session`, `gender`, `emergency_number`, `emergency_number_holder`,`photo`, `date_of_birth` FROM `about_me` WHERE `about_me_id`=$id";
+			$query = "SELECT  `about_me_id`,`roll_id`, `name`, `name_father`, `name_mother`, `number`, `blood_group`, `session`,`department_code`,`hall_code`, `gender`, `emergency_number`, `emergency_number_holder`,`photo`, `date_of_birth` FROM `about_me` WHERE `about_me_id`=$id";
 			$result = mysqli_query($db_con,$query);
 			$row = mysqli_fetch_array($result);
 		}
@@ -109,7 +111,7 @@
 	  	
 	  	<div class="form-group">
 		    <label for="number">Contact No</label>
-		    <input name="number" type="text" class="form-control" id="number" value="<?php echo $row['number']; ?>" pattern="01[5|6|7|8|9][0-9]{8}" placeholder="01........." required="">
+		    <input name="number" type="text" class="form-control" id="number" value="<?php echo $row['number']; ?>" pattern="01[5|3|6|7|8|9][0-9]{8}" placeholder="01........." required="">
 	  	</div>
 
 		<div class="form-group">
@@ -121,13 +123,21 @@
             <input name="session" type="text" class="form-control" id="session" value="<?php echo $row['session']; ?>"  placeholder="year" required="">
         </div>
         <div class="form-group">
+            <label for="department_code">Department Code</label>
+            <input name="department_code" type="text" class="form-control" id="department_code" value="<?php echo $row['department_code']; ?>" placeholder="01,02.." required="">
+        </div>
+        <div class="form-group">
+            <label for="hall_code">Hall Code</label>
+            <input name="hall_code" type="text" class="form-control" id="hall_code" value="<?php echo $row['hall_code']; ?>" placeholder="01,02.." required="">
+        </div>
+        <div class="form-group">
             <label for="gender">Gender</label>
             <input name="gender" type="text" class="form-control" id="gender" value="<?php echo $row['gender']; ?>"  placeholder="Male/Female/Other" required="">
         </div>
  
         <div class="form-group">
             <label for="emergency_number">Emergency Contact NO</label>
-            <input name="emergency_number" type="text" class="form-control" id="emergency_number" pattern="01[5|6|7|8|9][0-9]{8}" value="<?php echo $row['emergency_number']; ?>" placeholder="01........." required="">
+            <input name="emergency_number" type="text" class="form-control" id="emergency_number" pattern="01[5|3|6|7|8|9][0-9]{8}" value="<?php echo $row['emergency_number']; ?>" placeholder="01........." required="">
         </div>
         <div class="form-group">
             <label for="emergency_number_holder">Emergency Contact Relation </label>
