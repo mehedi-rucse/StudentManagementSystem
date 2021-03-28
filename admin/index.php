@@ -27,6 +27,59 @@ if (!isset($_SESSION['user_login'])) {
     <script src="../js/dataTables.bootstrap4.min.js"></script>
     <script src="../js/fontawesome.min.js"></script>
     <script src="../js/script.js"></script>
+    <style>
+      .dropbtn {
+        width:100%;
+        height: 45px;
+        border-style: ridge; 
+        line-height: 35px;
+        padding: 0 12px;
+        display: inline-block;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all .1s;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #e9f2f9;
+        font-size: 16px;
+        position: relative;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        width:100%;
+      }
+
+      .dropdown-content a {
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {background-color: #ddd;}
+
+      .dropdown:hover .dropdown-content {display: block;}
+
+      .dropdown:hover .dropbtn 
+      {
+        background-color: #0779e4;
+        color: #fff;
+      }
+    </style>
+    
     <title>Admin Dashboard</title>
   </head>
   <body>
@@ -52,24 +105,71 @@ if (!isset($_SESSION['user_login'])) {
           <div class="col-md-3">
             <div class="list-group">
               <a href="index.php?page=dashboard" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-              <a href="index.php?page=add-student" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Student</a>
-              <a href="index.php?page=all-student" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Students</a>
-              <a href="index.php?page=add-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> Add Course</a>
-              <a href="index.php?page=all-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> All Courses</a>
-              <a href="index.php?page=add-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> Add Department</a>
-              <a href="index.php?page=all-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> All Departments</a>
-              <a href="index.php?page=add-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> Add Hall</a>
-              <a href="index.php?page=all-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> All Halls</a>
-              <a href="index.php?page=add-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> Add Result Id</a>
-              <a href="index.php?page=all-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> All Result Ids</a>
-              <a href="index.php?page=add-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> Add Mark</a>
-              <a href="index.php?page=all-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> All Marks</a>
-              <a href="index.php?page=add-notice" class="list-group-item list-group-item-action"><i class="fa fa-bell"></i> Add Notice</a>
-              <a href="index.php?page=all-notice" class="list-group-item list-group-item-action"><i class="fa fa-comments"></i> All Notices</a>
-              <a href="index.php?page=add-payment" class="list-group-item list-group-item-action"><i class="fas fa-dollar-sign"></i> Add Payment</a>
-              <a href="index.php?page=all-payment" class="list-group-item list-group-item-action"><i class="fas fa-search-dollar"></i> All Payments</a>
-              <a href="index.php?page=all-users" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Users</a>
-              <a href="index.php?page=user-profile" class="list-group-item list-group-item-action"><i class="fa fa-user"></i> User Profile</a>
+              <div class="dropdown">
+                <button class="dropbtn">Students</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=add-student" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Student</a>
+                    <a href="index.php?page=all-student" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Students</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Courses</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=add-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> Add Course</a>
+                    <a href="index.php?page=all-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> All Courses</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Department</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=add-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> Add Department</a>
+                    <a href="index.php?page=all-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> All Departments</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Hall</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=add-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> Add Hall</a>
+                    <a href="index.php?page=all-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> All Halls</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Result ID</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=add-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> Add Result ID</a>
+                    <a href="index.php?page=all-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> All Result IDs</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Marks</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=add-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> Add Mark</a>
+                    <a href="index.php?page=all-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> All Marks</a>
+                </div>
+              </div>
+              
+              <div class="dropdown">
+                <button class="dropbtn">Notice</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=add-notice" class="list-group-item list-group-item-action"><i class="fa fa-bell"></i> Add Notice</a>
+                    <a href="index.php?page=all-notice" class="list-group-item list-group-item-action"><i class="fa fa-comments"></i> All Notices</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Payment</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=add-payment" class="list-group-item list-group-item-action"><i class="fas fa-dollar-sign"></i> Add Payment</a>
+                    <a href="index.php?page=all-payment" class="list-group-item list-group-item-action"><i class="fas fa-search-dollar"></i> All Payments</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Users</button>
+                  <div class="dropdown-content">
+                    <a href="index.php?page=all-users" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Users</a>
+                    <a href="index.php?page=user-profile" class="list-group-item list-group-item-action"><i class="fa fa-user"></i> User Profile</a>
+                </div>
+              </div>
+              
             </div>
           </div>
           <div class="col-md-9">
@@ -93,11 +193,13 @@ if (!isset($_SESSION['user_login'])) {
     <div class="clearfix"></div>
     <footer>
       <div class="container">
-      <p>Copyright &copy; 2016 to <?php echo date('Y') ?></p>
+      <p>Copyright &copy; Mehedi Hasan <?php echo date('Y') ?></p>
       </div>
     </footer>
     <script type="text/javascript">
       jQuery('.toast').toast('show');
     </script>
+    
+
   </body>
 </html>

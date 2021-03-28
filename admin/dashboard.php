@@ -118,14 +118,14 @@
   </thead>
   <tbody>
     <?php 
-      $query=mysqli_query($db_con,'SELECT * FROM `about_me` ORDER BY `about_me`.`roll` ASC;');
+      $query=mysqli_query($db_con,'SELECT * FROM `about_me` ORDER BY `about_me`.`roll_id` ASC;');
       $i=1;
       while ($result = mysqli_fetch_array($query)) { ?>
       <tr>
         <?php 
         echo '<td>'.$i.'</td>
           <td>'.ucwords($result['name']).'</td>
-          <td>'.$result['roll'].'</td>
+          <td>'.$result['roll_id'].'</td>
           
           <td>'.$result['number'].'</td>
           <td><img src="images/'.$result['photo'].'" height="50px"></td>';?>
