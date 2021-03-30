@@ -9,13 +9,13 @@
     }
  
   if (isset($_POST['addpayment'])) {
-    $roll_id = $_POST['roll_id'];
+    $about_me_id = $_POST['about_me_id'];
     $student_notice_id = $_POST['student_notice_id'];
-    $status = $_POST['status'];
+   
     
  
-    $query = "INSERT INTO `payment` (`payment_id`, `roll_id`,`student_notice_id`, `status`) 
-              VALUES (NULL,'$roll_id','$student_notice_id','$status');";
+    $query = "INSERT INTO `payment` (`payment_id`, `about_me_id`,`student_notice_id`) 
+              VALUES (NULL,'$about_me_id','$student_notice_id');";
  
     if (mysqli_query($db_con,$query)) {
         $datainsert['insertsucess'] = '<p style="color: green;">Payment Inserted!</p>';
@@ -59,17 +59,14 @@
         <?php } ?>
     <form enctype="multipart/form-data" method="POST" action="">
         <div class="form-group">
-            <label for="roll_id">Student Roll</label>
-            <input name="roll_id" type="text" class="form-control" id="roll_id" value="<?= isset($roll_id)? $roll_id: '' ; ?>" required="">
+            <label for="about_me_id">Student ID</label>
+            <input name="about_me_id" type="text" class="form-control" id="about_me_id" value="<?= isset($about_me_id)? $about_me_id: '' ; ?>" required="">
         </div>
         <div class="form-group">
             <label for="student_notice_id">Notice Id</label>
             <input name="student_notice_id" type="text" class="form-control" id="student_notice_id" value="<?= isset($student_notice_id)? $student_notice_id: '' ; ?>" required="">
         </div>
-        <div class="form-group">
-            <label for="status">Status</label>
-            <input name="status" type="text" class="form-control" id="status" value="<?= isset($status)? $status: '' ; ?>" required="">
-        </div>
+        
         
         
         <div class="form-group text-center">

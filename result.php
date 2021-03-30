@@ -12,7 +12,7 @@
         
         <?php 
             $query = "select name from about_me where  roll_id = '$_SESSION[roll]' ";
-            $query_run = mysqli_query($connection,$query);
+            $query_run = mysqli_query($db_con,$query);
             if($row = mysqli_fetch_assoc($query_run)){
                 ?>
                 <h2 class="wrong">
@@ -29,12 +29,12 @@
                     <?php 
                     
                       $result_query = "SELECT AVG(cgpa) as avg_cgpa FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                about_me.roll_id =result.roll_id and result.year='1st' AND result.result_id = course_wise_result.result_id";
+                                                about_me.about_me_id =result.about_me_id and result.year='1st' AND result.result_id = course_wise_result.result_id";
                       $improve_query ="SELECT COUNT(cgpa) as count_imp FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                about_me.roll_id =result.roll_id and result.year='1st' AND result.result_id = course_wise_result.result_id AND (course_wise_result.cgpa = '0' OR (course_wise_result.cgpa < '3' AND course_wise_result.tried < '1'))";
+                                                about_me.about_me_id =result.about_me_id and result.year='1st' AND result.result_id = course_wise_result.result_id AND (course_wise_result.cgpa = '0' OR (course_wise_result.cgpa < '3' AND course_wise_result.tried < '1'))";
 
-                      $result_query_run = mysqli_query($connection,$result_query);
-                      $improve_query_run = mysqli_query($connection,$improve_query);
+                      $result_query_run = mysqli_query($db_con,$result_query);
+                      $improve_query_run = mysqli_query($db_con,$improve_query);
 
                       echo "<table class='notices'>
                             <tr >
@@ -76,12 +76,12 @@
                       }
 
                       $result_query = "SELECT AVG(cgpa) as avg_cgpa FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                about_me.roll_id =result.roll_id and result.year='2nd' AND result.result_id = course_wise_result.result_id";
+                                                about_me.about_me_id =result.about_me_id and result.year='2nd' AND result.result_id = course_wise_result.result_id";
                       $improve_query ="SELECT COUNT(cgpa) as count_imp FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                about_me.roll_id =result.roll_id and result.year='2nd' AND result.result_id = course_wise_result.result_id AND (course_wise_result.cgpa = '0' OR (course_wise_result.cgpa < '3' AND course_wise_result.tried < '1'))";
+                                                about_me.about_me_id =result.about_me_id and result.year='2nd' AND result.result_id = course_wise_result.result_id AND (course_wise_result.cgpa = '0' OR (course_wise_result.cgpa < '3' AND course_wise_result.tried < '1'))";
 
-                      $result_query_run = mysqli_query($connection,$result_query);
-                      $improve_query_run = mysqli_query($connection,$improve_query);
+                      $result_query_run = mysqli_query($db_con,$result_query);
+                      $improve_query_run = mysqli_query($db_con,$improve_query);
                       while($result_row = mysqli_fetch_assoc($result_query_run)){
             	      	  echo"<tr>";
                             echo "<td>".'Second'."</td>";
@@ -109,12 +109,12 @@
                            echo"<tr>"; 
                        }
                        $result_query = "SELECT AVG(cgpa) as avg_cgpa FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                about_me.roll_id =result.roll_id and result.year='3rd' AND result.result_id = course_wise_result.result_id";
+                                                about_me.about_me_id =result.about_me_id and result.year='3rd' AND result.result_id = course_wise_result.result_id";
                       $improve_query ="SELECT COUNT(cgpa) as count_imp FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                about_me.roll_id =result.roll_id and result.year='3rd' AND result.result_id = course_wise_result.result_id AND (course_wise_result.cgpa = '0' OR (course_wise_result.cgpa < '3' AND course_wise_result.tried < '1'))";
+                                                about_me.about_me_id =result.about_me_id and result.year='3rd' AND result.result_id = course_wise_result.result_id AND (course_wise_result.cgpa = '0' OR (course_wise_result.cgpa < '3' AND course_wise_result.tried < '1'))";
 
-                      $result_query_run = mysqli_query($connection,$result_query);
-                      $improve_query_run = mysqli_query($connection,$improve_query);
+                      $result_query_run = mysqli_query($db_con,$result_query);
+                      $improve_query_run = mysqli_query($db_con,$improve_query);
                       while($result_row = mysqli_fetch_assoc($result_query_run)){
             	      	  echo"<tr>";
                             echo "<td>".'Third'."</td>";
@@ -142,12 +142,12 @@
                            echo"<tr>"; 
                        }
                        $result_query = "SELECT AVG(cgpa) as avg_cgpa FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                about_me.roll_id =result.roll_id and result.year='4th' AND result.result_id = course_wise_result.result_id";
+                                                about_me.about_me_id =result.about_me_id and result.year='4th' AND result.result_id = course_wise_result.result_id";
                       $improve_query ="SELECT COUNT(cgpa) as count_imp FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                about_me.roll_id =result.roll_id and result.year='4th' AND result.result_id = course_wise_result.result_id AND (course_wise_result.cgpa = '0' OR (course_wise_result.cgpa < '3' AND course_wise_result.tried < '1'))";
+                                                about_me.about_me_id =result.about_me_id and result.year='4th' AND result.result_id = course_wise_result.result_id AND (course_wise_result.cgpa = '0' OR (course_wise_result.cgpa < '3' AND course_wise_result.tried < '1'))";
 
-                      $result_query_run = mysqli_query($connection,$result_query);
-                      $improve_query_run = mysqli_query($connection,$improve_query);
+                      $result_query_run = mysqli_query($db_con,$result_query);
+                      $improve_query_run = mysqli_query($db_con,$improve_query);
                       while($result_row = mysqli_fetch_assoc($result_query_run)){
             	      	  echo"<tr>";
                             echo "<td>".'Fourth'."</td>";

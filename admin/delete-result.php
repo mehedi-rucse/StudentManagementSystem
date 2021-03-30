@@ -1,11 +1,11 @@
+
 <?php 
-session_start();
 if (isset($_SESSION['user_login'])) {
 	$id = base64_decode($_GET['id']);
-	if(mysqli_query($db_con,"DELETE FROM `department_info` WHERE `department_code` = '$id'")){
-			$datadelete['deletesucess'] = '<p style="color: green;">Department Deleted!</p>';
+	if(mysqli_query($db_con,"DELETE FROM `result` WHERE `result_id` = '$id'")){
+		$datadelete['deletesucess'] = '<p style="color: green;">Result Deleted!</p>';
 	}else{
-		$datadelete['deleteerror'] = '<p style="color: red;">Department cannot be deleted!</p>';
+		$datadelete['deleteerror'] = '<p style="color: red;">Result cannot be deleted!</p>';
 	}
     }else{
 	header('Location: login.php');
@@ -17,7 +17,7 @@ if (isset($_SESSION['user_login'])) {
     <?php if (isset($datadelete)) {?>
     <div role="alert" aria-live="assertive" aria-atomic="true" class="toast fade" data-autohide="true" data-animation="true" data-delay="2000">
       <div class="toast-header">
-        <strong class="mr-auto">Department Delete Alert</strong>
+        <strong class="mr-auto">Result Delete Alert</strong>
         <small><?php echo date('d-M-Y'); ?></small>
         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>

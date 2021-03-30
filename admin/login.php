@@ -53,11 +53,11 @@ if(isset($_SESSION['user_login'])){
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <title>Hello, world!</title>
+    <title>Admin Login!</title>
   </head>
   <body>
     <div class="container"><br>
-          <h1 class="text-center">Login Users!</h1><hr><br>
+          <h1 class="text-center">Admin Login!</h1><hr><br>
           <div class="d-flex justify-content-center">
           	<?php if(isset($usernameerr)){ ?> <div role="alert" aria-live="assertive" aria-atomic="true" align="center" class="toast alert alert-danger fade hide" data-delay="2000"><?php echo $usernameerr; ?></div><?php };?>
           		<?php if(isset($worngpass)){ ?> <div role="alert" aria-live="assertive" aria-atomic="true" align="center" class="toast alert alert-danger fade hide" data-delay="2000"><?php echo $worngpass; ?></div><?php };?>
@@ -79,7 +79,7 @@ if(isset($_SESSION['user_login'])){
 				  <div class="text-center">
 				      <button type="submit" name="login" class="btn btn-warning">Sign in</button>
 				    </div>
-				    <p>If you have don't user account, You can<a href="register.php"> Register Account!</a></p>
+				    <center><br><p>Don't have an account!<a href="register.php"> Register </a>here!</p></center>
 				  </div>
 				</form>
             </div>

@@ -1,8 +1,16 @@
 <?php 
-    include'main/header.php'
+  $corepage = explode('/', $_SERVER['PHP_SELF']);
+    $corepage = end($corepage);
+    if ($corepage!=='menu.php') {
+      if ($corepage==$corepage) {
+        $corepage = explode('.', $corepage);
+       header('Location: menu.php?page='.$corepage[0]);
+     }
+    }
 ?>
-</div>
+       
 <style>
+    
     .notices {
         font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
@@ -38,42 +46,39 @@
 
 
 <div>
-	    	    <h1>Notices</h1>
+    <br>
+    <br>
+	<h1 style="text-align: center;">Notices</h1>
+    <br>
+    <br>
 
-                    <?php 
-                      $notice_query = "SELECT * FROM about_me,student_notice WHERE roll_id = '$_SESSION[roll]' AND
-                                                about_me.department_code = student_notice.department_code ";
+     <?php 
+        $notice_query = "SELECT * FROM about_me,student_notice WHERE roll_id = '$_SESSION[roll]' AND
+        about_me.department_code = student_notice.department_code ";
 
-                      $notice_query_run = mysqli_query($connection,$notice_query);
+        $notice_query_run = mysqli_query($db_con,$notice_query);
 
-                         echo "<table class='notices'>
-                            <tr >
-                                <th>Year</th>
-                                <th>Semester</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Action Date</th>        
-                            </tr>";
+        echo "<table class='notices'>
+            <tr>
+                <th>Year</th>
+                <th>Semester</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action Date</th>        
+            </tr>";
 
-
-
-                      while($notice_row = mysqli_fetch_assoc($notice_query_run))
-                      {
+            while($notice_row = mysqli_fetch_assoc($notice_query_run))
+            {
 		      		
-                            echo"<tr>";
-                                echo "<td>".$notice_row['notice_year']."</td>";
-                                echo "<td>".$notice_row['notice_semester']."</td>";
-                                echo "<td>".$notice_row['title']."</td>";
-                                echo "<td>".$notice_row['details']."</td>";
-                                echo "<td>".$notice_row['due_date']."</td>";
-                            echo"<tr>";
-                      }
-                      echo "</table>";
-                  ?>
-		    <br>
-
-
-</div>
-<div class="bottom-bar">
-    <a class="button" href="menu.php">Home</a>
+                echo"<tr>";
+                    echo "<td>".$notice_row['notice_year']."</td>";
+                    echo "<td>".$notice_row['notice_semester']."</td>";
+                    echo "<td>".$notice_row['title']."</td>";
+                    echo "<td>".$notice_row['details']."</td>";
+                    echo "<td>".$notice_row['due_date']."</td>";
+                echo"<tr>";
+            }
+        echo "</table>";
+        ?>
+		<br>
 </div>

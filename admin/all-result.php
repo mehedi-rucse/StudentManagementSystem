@@ -54,7 +54,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Result ID</th>
-      <th scope="col">Student Roll</th>
+      <th scope="col">Student ID</th>
       <th scope="col">Year</th>
       <th scope="col">Semester</th>
       <th scope="col">Action</th>
@@ -68,16 +68,15 @@
       while ($result = mysqli_fetch_array($query)) { ?>
       <tr>
         <?php 
-        echo '<td>'.ucwords($result['result_id']).'</td>
-          <td>'.ucwords($result['roll_id']).'</td>
+        echo '<td>'.$result['result_id'].'</td>
+          <td>'.($result['about_me_id']).'</td>
           <td>'.$result['year'].'</td>
           <td>'.$result['semester'].'</td>
-          
           <td>
-            <a class="btn btn-xs btn-warning" href="index.php?page=edit-result &id='.base64_encode($result['result_id']).'">
+            <a class="btn btn-xs btn-warning" href="index.php?page=edit-result&id='.base64_encode($result['result_id']).'">
               <i class="fa fa-edit"></i></a>
 
-             &nbsp; <a class="btn btn-xs btn-danger" onclick="javascript:confirmationDelete($(this));return false;" href="index.php?page=delete-result &id='.base64_encode($result['result_id']).'">
+             &nbsp; <a class="btn btn-xs btn-danger" onclick="javascript:confirmationDelete($(this));return false;" href="index.php?page=delete-result&id='.base64_encode($result['result_id']).'">
              <i class="fas fa-trash-alt"></i></a></td>';?>
       </tr>  
      <?php $i++;} ?>

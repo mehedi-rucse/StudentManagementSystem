@@ -16,8 +16,8 @@
     
     
  
-    $query = "INSERT INTO `department_info` (`department_info_id`, `department_code`, `department_name`, `department_building`) 
-              VALUES (NULL,'$department_code','$department_name','$department_building');";
+    $query = "INSERT INTO `department_info` (`department_code`, `department_name`, `department_building`) 
+              VALUES ('$department_code','$department_name','$department_building');";
  
     if (mysqli_query($db_con,$query)) {
         $datainsert['insertsucess'] = '<p style="color: green;">Department Inserted!</p>';

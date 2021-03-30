@@ -15,10 +15,10 @@
         <?php 
 
             $query = "SELECT * FROM about_me,result,course_wise_result,course_information WHERE about_me.roll_id = '$_SESSION[roll]' AND
-                                                 about_me.roll_id =result.roll_id  AND result.result_id = course_wise_result.result_id AND 
+                                                 about_me.about_me_id =result.about_me_id  AND result.result_id = course_wise_result.result_id AND 
                                                  course_wise_result.course_id = course_information.course_id";
 
-                $query_run = mysqli_query($connection,$query);
+                $query_run = mysqli_query($db_con,$query);
 
                 echo "<table class='notices'>
                 <tr >

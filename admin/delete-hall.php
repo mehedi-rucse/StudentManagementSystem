@@ -2,7 +2,7 @@
 <?php 
 if (isset($_SESSION['user_login'])) {
 	$id = base64_decode($_GET['id']);
-	if(mysqli_query($db_con,"DELETE FROM `hall_info` WHERE `hall_information_id` = '$id'")){
+	if(mysqli_query($db_con,"DELETE FROM `hall_info` WHERE `hall_code` = '$id'")){
 		$datadelete['deletesucess'] = '<p style="color: green;">Hall Deleted!</p>';
 	}else{
 		$datadelete['deleteerror'] = '<p style="color: red;">Hall cannot be deleted!</p>';

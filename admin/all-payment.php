@@ -54,9 +54,8 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">SL</th>
-      <th scope="col">Student Roll</th>
+      <th scope="col">Student ID</th>
       <th scope="col">Notice Id</th>
-      <th scope="col">Status</th>
       <th scope="col">Action</th>
      
     </tr>
@@ -69,9 +68,9 @@
       <tr>
         <?php 
         echo '<td>'.$i.'</td>
-          <td>'.ucwords($result['roll_id']).'</td>
+          <td>'.($result['about_me_id']).'</td>
           <td>'.$result['student_notice_id'].'</td>
-          <td>'.$result['status'].'</td>
+          
           
           <td>
             <a class="btn btn-xs btn-warning" href="index.php?page=edit-payment&id='.base64_encode($result['payment_id']).'">

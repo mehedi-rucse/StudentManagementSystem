@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_login'])) {
     <script src="../js/fontawesome.min.js"></script>
     <script src="../js/script.js"></script>
     <style>
-      .dropbtn {
+        .dropbtn {
         width:100%;
         height: 45px;
         border-style: ridge; 
@@ -45,46 +45,30 @@ if (!isset($_SESSION['user_login'])) {
         font-size: 16px;
         position: relative;
       }
-
-      .dropdown {
-        position: relative;
-        display: inline-block;
-        
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        width:100%;
-      }
-
-      .dropdown-content a {
-        color: black;
-        text-align: center;
-        text-decoration: none;
-        display: block;
-      }
-
-      .dropdown-content a:hover {background-color: #ddd;}
-
-      .dropdown:hover .dropdown-content {display: block;}
-
-      .dropdown:hover .dropbtn 
+      .dropbtn:hover  
       {
         background-color: #0779e4;
         color: #fff;
       }
+      .dropbtn-content a{
+        text-align: center;
+        background-color: #1b262c;
+        color: #fff;
+      }
+
+      .dropbtn-content :hover {background-color: #00bcd4;color: #fff;}
+      .list-group .menu-content {display: block;}
+
+
+
     </style>
-    
     <title>Admin Dashboard</title>
   </head>
   <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="index.php"><i class="fas fa-home fa-3x"></i></a>
+  <img src="../img/ru-logo.png" style="width: 60px;height: 60px;" alt="Rajshahi University">
+  <h2 style="color: #eeebdd;">University of Rajshahi</h3>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -100,79 +84,71 @@ if (!isset($_SESSION['user_login'])) {
   </div>
 </nav>
 <br>
-    <div class="container">
-        <div class="row">
-          <div class="col-md-3">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
             <div class="list-group">
-              <a href="index.php?page=dashboard" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-              <div class="dropdown">
-                <button class="dropbtn">Students</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=add-student" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Student</a>
-                    <a href="index.php?page=all-student" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Students</a>
+                <div id="menu-content" class="menu-content collapse out">
+                    <a href="index.php?page=dashboard" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    <button  data-toggle="collapse" data-target="#student" class="dropbtn collapsed">Student</button>
+                    <div class="dropbtn-content collapse" id="student">
+                        <a href="index.php?page=add-student" class="list-group-item list-group-item-action"><i class="fa fa-user-plus"></i> Add Student</a>
+                        <a href="index.php?page=all-student" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Students</a>
+                    </div>
+
+                    <button  data-toggle="collapse" data-target="#course" class="dropbtn collapsed">Course</button>
+                    <div class="dropbtn-content collapse" id="course">
+                        <a href="index.php?page=add-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> Add Course</a>
+                        <a href="index.php?page=all-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> All Courses</a>
+                    </div>
+
+                    <button  data-toggle="collapse" data-target="#department" class="dropbtn collapsed">Department</button>
+                    <div class="dropbtn-content collapse" id="department">
+                        <a href="index.php?page=add-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> Add Department</a>
+                        <a href="index.php?page=all-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> All Departments</a>
+                    </div>
+
+                    <button  data-toggle="collapse" data-target="#hall" class="dropbtn collapsed">Hall</button>
+                    <div class="dropbtn-content collapse" id="hall">
+                        <a href="index.php?page=add-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> Add Hall</a>
+                        <a href="index.php?page=all-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> All Halls</a>
+                    </div>
+
+                    <button  data-toggle="collapse" data-target="#result" class="dropbtn collapsed">Result ID</button>
+                    <div class="dropbtn-content collapse" id="result">
+                        <a href="index.php?page=add-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> Add Result ID</a>
+                        <a href="index.php?page=all-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> All Result IDs</a>
+                    </div>
+
+                    <button  data-toggle="collapse" data-target="#mark" class="dropbtn collapsed">Marks</button>
+                    <div class="dropbtn-content collapse" id="mark">
+                        <a href="index.php?page=add-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> Add Mark</a>
+                        <a href="index.php?page=all-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> All Marks</a>
+                    </div>
+
+                    <button  data-toggle="collapse" data-target="#notice" class="dropbtn collapsed">Notice</button>
+                    <div class="dropbtn-content collapse" id="notice">  
+                        <a href="index.php?page=add-notice" class="list-group-item list-group-item-action"><i class="fa fa-bell"></i> Add Notice</a>
+                        <a href="index.php?page=all-notice" class="list-group-item list-group-item-action"><i class="fa fa-comments"></i> All Notices</a>
+                    </div>
+
+                    <button  data-toggle="collapse" data-target="#payment" class="dropbtn collapsed">Payment</button>
+                    <div class="dropbtn-content collapse" id="payment">
+                        <a href="index.php?page=add-payment" class="list-group-item list-group-item-action"><i class="fas fa-dollar-sign"></i> Add Payment</a>
+                        <a href="index.php?page=all-payment" class="list-group-item list-group-item-action"><i class="fas fa-search-dollar"></i> All Payments</a>
+                    </div>
+
+                    <button  data-toggle="collapse" data-target="#user" class="dropbtn collapsed">User</button>
+                    <div class="dropbtn-content collapse" id="user">
+                        <a href="index.php?page=all-users" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Users</a>
+                        <a href="index.php?page=user-profile" class="list-group-item list-group-item-action"><i class="fa fa-user"></i> User Profile</a>
+                    </div>
                 </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropbtn">Courses</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=add-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> Add Course</a>
-                    <a href="index.php?page=all-course" class="list-group-item list-group-item-action"><i class="fa fa-book"></i> All Courses</a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropbtn">Department</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=add-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> Add Department</a>
-                    <a href="index.php?page=all-department" class="list-group-item list-group-item-action"><i class="fa fa-archway"></i> All Departments</a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropbtn">Hall</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=add-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> Add Hall</a>
-                    <a href="index.php?page=all-hall" class="list-group-item list-group-item-action"><i class="fas fa-university"></i> All Halls</a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropbtn">Result ID</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=add-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> Add Result ID</a>
-                    <a href="index.php?page=all-result" class="list-group-item list-group-item-action"><i class="fas fa-braille"></i> All Result IDs</a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropbtn">Marks</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=add-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> Add Mark</a>
-                    <a href="index.php?page=all-mark" class="list-group-item list-group-item-action"><i class="fas fa-graduation-cap"></i> All Marks</a>
-                </div>
-              </div>
-              
-              <div class="dropdown">
-                <button class="dropbtn">Notice</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=add-notice" class="list-group-item list-group-item-action"><i class="fa fa-bell"></i> Add Notice</a>
-                    <a href="index.php?page=all-notice" class="list-group-item list-group-item-action"><i class="fa fa-comments"></i> All Notices</a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropbtn">Payment</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=add-payment" class="list-group-item list-group-item-action"><i class="fas fa-dollar-sign"></i> Add Payment</a>
-                    <a href="index.php?page=all-payment" class="list-group-item list-group-item-action"><i class="fas fa-search-dollar"></i> All Payments</a>
-                </div>
-              </div>
-              <div class="dropdown">
-                <button class="dropbtn">Users</button>
-                  <div class="dropdown-content">
-                    <a href="index.php?page=all-users" class="list-group-item list-group-item-action"><i class="fa fa-users"></i> All Users</a>
-                    <a href="index.php?page=user-profile" class="list-group-item list-group-item-action"><i class="fa fa-user"></i> User Profile</a>
-                </div>
-              </div>
-              
             </div>
-          </div>
-          <div class="col-md-9">
+        </div>
+    
+        <div class="col-md-9">
              <div class="content">
                  <?php 
                    if (isset($_GET['page'])) {
@@ -187,7 +163,7 @@ if (!isset($_SESSION['user_login'])) {
                     }
                   ?>
              </div>
-        </div>
+          </div>
         </div>  
     </div>
     <div class="clearfix"></div>
@@ -203,3 +179,6 @@ if (!isset($_SESSION['user_login'])) {
 
   </body>
 </html>
+
+
+        

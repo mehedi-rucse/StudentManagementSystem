@@ -9,13 +9,13 @@
     }
  
   if (isset($_POST['addresultid'])) {
-    $roll_id = $_POST['roll_id'];
+    $about_me_id = $_POST['about_me_id'];
     $year = $_POST['year'];
     $semester = $_POST['semester'];
     
  
-    $query = "INSERT INTO `result` (`result_id`, `roll_id`,`year`, `semester`) 
-              VALUES (NULL,'$roll_id','$year','$semester');";
+    $query = "INSERT INTO `result` (`result_id`, `about_me_id`,`year`, `semester`) 
+              VALUES (NULL,'$about_me_id','$year','$semester');";
  
     if (mysqli_query($db_con,$query)) {
         $datainsert['insertsucess'] = '<p style="color: green;">Result Id Inserted!</p>';
@@ -60,8 +60,8 @@
     <form enctype="multipart/form-data" method="POST" action="">
             
         <div class="form-group">
-            <label for="roll_id">Student Roll</label>
-            <input name="roll_id" type="text" class="form-control" id="roll_id" value="<?= isset($roll_id)? $roll_id: '' ; ?>" required="">
+            <label for="about_me_id">Student ID</label>
+            <input name="about_me_id" type="text" class="form-control" id="about_me_id" value="<?= isset($about_me_id)? $about_me_id: '' ; ?>" required="">
         </div>
         
         <div class="form-group">

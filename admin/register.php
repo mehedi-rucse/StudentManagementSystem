@@ -80,11 +80,11 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <title>Hello, world!</title>
+    <title>Admin Registration!</title>
   </head>
   <body>
     <div class="container"><br>
-          <h1 class="text-center">Register Users!</h1><hr><br>
+          <h1 class="text-center">Admin Registration</h1><hr><br>
           <div class="d-flex justify-content-center">
           	<?php 
           		if (isset($_GET['insert'])) {
@@ -96,28 +96,39 @@
             <div class="col-md-8 offset-md-2">
              	<form method="POST" enctype="multipart/form-data">
 				  <div class="form-group row">
+				  	<label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
 				    <div class="col-sm-6">
 				      <input type="text" class="form-control" value="<?= isset($name)? $name:'' ?>" name="name" placeholder="Name" id="inputEmail3"><?= isset($input_error['name'])? '<label for="inputEmail3" class="error">'.$input_error['name'].'</label>':'';  ?>
 				    </div>
+				  </div>
+				  <div class="form-group row">
+				  	<label for="full_name" class="col-md-4 col-form-label text-md-right">Email Address</label>
 				    <div class="col-sm-6">
 				      <input type="email" class="form-control" value="<?= isset($email)? $email:'' ?>" name="email" placeholder="Email" id="inputEmail3"><?= isset($input_error['email'])? '<label class="error">'.$input_error['email'].'</label>':'';  ?>
 				      <?= isset($email_error)? '<label class="error">'.$email_error.'</label>':'';  ?>
 				    </div>
 				  </div>
 				  <div class="form-group row">
-				  	<div class="col-sm-4">
+				  	<label for="full_name" class="col-md-4 col-form-label text-md-right">User Name</label>
+				    <div class="col-sm-6">
 				      <input type="text" name="username" value="<?= isset($username)? $username:'' ?>" class="form-control" id="inputPassword3" placeholder="Username"><?= isset($input_error['usrname'])? '<label class="error">'.$input_error['username'].'</label>':'';  ?><?= isset($username_error)? '<label class="error">'.$username_error.'</label>':'';  ?><?= isset($usernamelan)? '<label class="error">'.$usernamelan.'</label>':'';  ?>
 				    </div>
-				    <div class="col-sm-4">
+				  </div>
+				  <div class="form-group row">
+				  	<label for="full_name" class="col-md-4 col-form-label text-md-right">Password</label>
+				    <div class="col-sm-6">
 				      <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password"><?= isset($input_error['password'])? '<label class="error">'.$input_error['password'].'</label>':'';  ?> <?= isset($passlan)? '<label class="error">'.$passlan.'</label>':'';  ?>  
 				    </div>
-				    <div class="col-sm-4">
+				  </div>
+				  <div class="form-group row">
+				  	<label for="full_name" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+				    <div class="col-sm-6">
 				      <input type="password" name="c_password" class="form-control" id="inputPassword3" placeholder="Confirm Password"><?= isset($input_error['notmatch'])? '<label class="error">'.$input_error['notmatch'].'</label>':'';  ?> <?= isset($passlan)? '<label class="error">'.$passlan.'</label>':'';  ?>
 				    </div>
 				  </div>
-				  <div class="row">
-				  	<div class="col-sm-3"><label for="photo">Choose your photo</label></div>
-				  	<div class="col-sm-9">
+				  <div class="form-group row">
+				  	<label for="full_name" class="col-md-4 col-form-label text-md-right">Choosw your photo</label>
+				    <div class="col-sm-6">
 				      <input type="file" id="photo" name="photo" class="form-control" id="inputPassword3" >
 				      <br>
 				    </div>
@@ -129,10 +140,10 @@
 				</form>
             </div>
           </div>
-              <p>If you have account, you can <a href="login.php">Login</a> your account!</p>
+              <center><br><p>Already have an account! <a href="login.php">Login</a> here!</p></center>
     </div>
     <footer>
-    	<p>Copyright &copy; 2016 to <?php echo date('Y') ?></p>
+    	<p>Copyright &copy; Mehedi Hasan <?php echo date('Y') ?></p>
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

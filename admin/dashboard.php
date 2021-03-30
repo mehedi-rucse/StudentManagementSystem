@@ -118,7 +118,7 @@
   </thead>
   <tbody>
     <?php 
-      $query=mysqli_query($db_con,'SELECT * FROM `about_me` ORDER BY `about_me`.`roll_id` ASC;');
+      $query=mysqli_query($db_con,'SELECT * FROM `about_me` ORDER BY `about_me`.`about_me_id` ASC;');
       $i=1;
       while ($result = mysqli_fetch_array($query)) { ?>
       <tr>

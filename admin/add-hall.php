@@ -13,8 +13,8 @@
     $hall_name = $_POST['hall_name'];
     
  
-    $query = "INSERT INTO `hall_info` (`hall_information_id`, `hall_code`, `hall_name`) 
-              VALUES (NULL,'$hall_code','$hall_name');";
+    $query = "INSERT INTO `hall_info` ( `hall_code`, `hall_name`) 
+              VALUES ('$hall_code','$hall_name');";
  
     if (mysqli_query($db_con,$query)) {
         $datainsert['insertsucess'] = '<p style="color: green;">Hall Inserted!</p>';

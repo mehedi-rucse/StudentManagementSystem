@@ -9,11 +9,8 @@
     <title>Student Database</title>
     <link rel="stylesheet" href="CSS/profile.css">
     <?php
-
         session_start();
-        
-        $connection = mysqli_connect("localhost","root","");
-        $db = mysqli_select_db($connection,"project_dbms");
+        require_once 'admin/db_con.php';
     ?>
 
 </head>
@@ -23,7 +20,7 @@
         <h1>Welcome!</h1>
         <?php 
             $query = "select name from about_me where roll_id = '$_SESSION[roll]' ";
-            $query_run = mysqli_query($connection,$query);
+            $query_run = mysqli_query($db_con,$query);
             if($row = mysqli_fetch_assoc($query_run)){
                 ?>
                 <h2>

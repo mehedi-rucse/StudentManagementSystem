@@ -17,7 +17,7 @@
     $department_building = $_POST['department_building'];
   	
 
-  	$query = "UPDATE `department_info` SET`department_code`='$department_code', `department_name`='$department_name',`department_building`='$department_building' WHERE `department_info_id`= $id";
+  	$query = "UPDATE `department_info` SET`department_code`='$department_code', `department_name`='$department_name',`department_building`='$department_building' WHERE `department_code`= $id";
   	if (mysqli_query($db_con,$query)) {
   		$datainsert['insertsucess'] = '<p style="color: green;">Department Updated!</p>';
   		
@@ -37,7 +37,7 @@
 
 	<?php
 		if (isset($id)) {
-			$query = "SELECT `department_info_id`, `department_code`, `department_name`, `department_building` FROM `department_info` WHERE `department_info_id`=$id";
+			$query = "SELECT  `department_code`, `department_name`, `department_building` FROM `department_info` WHERE `department_code`=$id";
 			$result = mysqli_query($db_con,$query);
 			$row = mysqli_fetch_array($result);
 		}

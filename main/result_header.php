@@ -7,16 +7,14 @@
 <title>Result</title>
  <?php
 
-        session_start();
-        
-        $connection = mysqli_connect("localhost","root","");
-        $db = mysqli_select_db($connection,"project_dbms");
+        session_start(); 
+        require_once 'admin/db_con.php';
   ?>
 </head>
 <body>
 
     <div class="topnav" id="myTopnav">
-    	<a href="menu.php">Home</a>
+    	<a class="navbar-brand" href="menu.php"><i class="fas fa-home fa">Home</i></a>
         <a href="result.php">Result</a>
         <a href="full_result.php">Courses</a>
 

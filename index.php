@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <style>     
+        body {
+          background-color: #E4F9F5;
+          
+        }
+    </style>
     <title>Welcome!!</title>
   </head>
   <body>

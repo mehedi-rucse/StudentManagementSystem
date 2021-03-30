@@ -1,7 +1,13 @@
 <?php 
-    include'main/header.php'
+  $corepage = explode('/', $_SERVER['PHP_SELF']);
+    $corepage = end($corepage);
+    if ($corepage!=='menu.php') {
+      if ($corepage==$corepage) {
+        $corepage = explode('.', $corepage);
+       header('Location: menu.php?page='.$corepage[0]);
+     }
+    }
 ?>
-</div>
 <style>
     .notices {
         font-family: Arial, Helvetica, sans-serif;
@@ -34,18 +40,47 @@
         background-color: #fb743e;
         color: #fff;
     }
+    .right {
+        color: rgb(26, 235, 26);
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .wrong {
+        color: red;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .yellow {
+        color: #f0a500;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .pink {
+        color: #e36bae;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .table-header {
+        color: #ffffff;
+        background-color: #3cb0fd;
+    }
 </style>
 
 
 <div>
-	    	    <h1>Payment</h1>
+    <br><br><h1 style="text-align: center;">Payment</h1><br><br>
 
                     <?php 
                       $notice_query = "SELECT * FROM about_me INNER JOIN student_notice ON about_me.department_code = student_notice.department_code 
-                                       LEFT JOIN  payment ON about_me.roll_id = payment.roll_id AND payment.student_notice_id = student_notice.student_notice_id 
+                                       LEFT JOIN  payment ON about_me.about_me_id = payment.about_me_id AND payment.student_notice_id = student_notice.student_notice_id 
                                        WHERE about_me.roll_id = '$_SESSION[roll]'  AND student_notice.type_of_notice ='Payment'";
 
-                      $notice_query_run = mysqli_query($connection,$notice_query);
+                      $notice_query_run = mysqli_query($db_con,$notice_query);
 
                          echo "<table class='notices'>
                             <tr >
@@ -68,7 +103,7 @@
                                 echo "<td>".$notice_row['title']."</td>";
                                 echo "<td>".$notice_row['details']."</td>";
 
-                                if($notice_row['status'] === NULL){
+                                if($notice_row['payment_id'] === NULL){
 
                                     //saving current time in a variable
                                     $currentTime=date("Y-m-d",time());
@@ -97,7 +132,7 @@
                                     
                                 }
                                 else{
-                                    echo "<td class='right'>".$notice_row['status']."</td>";
+                                    echo "<td class='right'>"."Paid"."</td>";
                                 }
 
                                 echo "<td>".$notice_row['due_date']."</td>";
@@ -107,8 +142,4 @@
                       }
                       echo "</table>";                  
                   ?>
-
-</div>
-<div class="bottom-bar">
-    <a class="button" href="menu.php">Home</a>
 </div>

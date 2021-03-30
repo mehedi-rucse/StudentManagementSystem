@@ -8,7 +8,7 @@
      }
     }
 ?>
-<h1 class="text-primary"><i class="fas fa-users"></i>  All Results<small class="text-warning"> Course List!</small></h1>
+<h1 class="text-primary"><i class="fas fa-users"></i>  All Marks<small class="text-warning"> Mark List!</small></h1>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
      <li class="breadcrumb-item" aria-current="page"><a href="index.php">Dashboard </a></li>

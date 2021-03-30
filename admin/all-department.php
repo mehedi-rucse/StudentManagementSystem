@@ -63,7 +63,7 @@
   </thead>
   <tbody>
     <?php 
-      $query=mysqli_query($db_con,'SELECT * FROM `department_info` ORDER BY `department_info`.`department_info_id` ASC;');
+      $query=mysqli_query($db_con,'SELECT * FROM `department_info` ORDER BY `department_info`.`department_code` ASC;');
       $i=1;
       while ($result = mysqli_fetch_array($query)) { ?>
       <tr>
@@ -74,10 +74,10 @@
           <td>'.$result['department_building'].'</td>
           
           <td>
-            <a class="btn btn-xs btn-warning" href="index.php?page=edit-department&id='.base64_encode($result['department_info_id']).'">
+            <a class="btn btn-xs btn-warning" href="index.php?page=edit-department&id='.base64_encode($result['department_code']).'">
               <i class="fa fa-edit"></i></a>
 
-             &nbsp; <a class="btn btn-xs btn-danger" onclick="javascript:confirmationDelete($(this));return false;" href="index.php?page=delete-department&id='.base64_encode($result['department_info_id']).'">
+             &nbsp; <a class="btn btn-xs btn-danger" onclick="javascript:confirmationDelete($(this));return false;" href="index.php?page=delete-department&id='.base64_encode($result['department_code']).'">
              <i class="fas fa-trash-alt"></i></a></td>';?>
       </tr>  
      <?php $i++;} ?>

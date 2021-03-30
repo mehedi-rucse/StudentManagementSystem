@@ -62,7 +62,7 @@
   </thead>
   <tbody>
     <?php 
-      $query=mysqli_query($db_con,'SELECT * FROM `hall_info` ORDER BY `hall_info`.`hall_information_id` ASC;');
+      $query=mysqli_query($db_con,'SELECT * FROM `hall_info` ORDER BY `hall_info`.`hall_code` ASC;');
       $i=1;
       while ($result = mysqli_fetch_array($query)) { ?>
       <tr>
@@ -72,10 +72,10 @@
           <td>'.$result['hall_name'].'</td>
           
           <td>
-            <a class="btn btn-xs btn-warning" href="index.php?page=edit-hall&id='.base64_encode($result['hall_information_id']).'">
+            <a class="btn btn-xs btn-warning" href="index.php?page=edit-hall&id='.base64_encode($result['hall_code']).'">
               <i class="fa fa-edit"></i></a>
 
-             &nbsp; <a class="btn btn-xs btn-danger" onclick="javascript:confirmationDelete($(this));return false;" href="index.php?page=delete-hall&id='.base64_encode($result['hall_information_id']).'">
+             &nbsp; <a class="btn btn-xs btn-danger" onclick="javascript:confirmationDelete($(this));return false;" href="index.php?page=delete-hall&id='.base64_encode($result['hall_code']).'">
              <i class="fas fa-trash-alt"></i></a></td>';?>
       </tr>  
      <?php $i++;} ?>

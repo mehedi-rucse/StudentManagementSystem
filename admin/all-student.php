@@ -53,7 +53,7 @@
 <table class="table  table-striped table-hover table-bordered" id="data">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">SL</th>
+      <th scope="col">Student ID</th>
       <th scope="col">Name</th>
       <th scope="col">Roll</th>
       <th scope="col">Father Name</th>
@@ -78,7 +78,7 @@
       while ($result = mysqli_fetch_array($query)) { ?>
       <tr>
         <?php 
-        echo '<td>'.$i.'</td>
+        echo '<td>'.$result['about_me_id'].'</td>
           <td>'.ucwords($result['name']).'</td>
           <td>'.$result['roll_id'].'</td>
           <td>'.$result['name_father'].'</td>

@@ -17,7 +17,7 @@
     
   	
 
-  	$query = "UPDATE `hall_info` SET`hall_code`='$hall_code', `hall_name`='$hall_name' WHERE `hall_information_id`= $id";
+  	$query = "UPDATE `hall_info` SET`hall_code`='$hall_code', `hall_name`='$hall_name' WHERE `hall_code`= $id";
   	if (mysqli_query($db_con,$query)) {
   		$datainsert['insertsucess'] = '<p style="color: green;">Hall Updated!</p>';
   		
@@ -37,7 +37,7 @@
 
 	<?php
 		if (isset($id)) {
-			$query = "SELECT `hall_information_id`, `hall_code`, `hall_name` FROM `hall_info` WHERE `hall_information_id`=$id";
+			$query = "SELECT  `hall_code`, `hall_name` FROM `hall_info` WHERE `hall_code`=$id";
 			$result = mysqli_query($db_con,$query);
 			$row = mysqli_fetch_array($result);
 		}
