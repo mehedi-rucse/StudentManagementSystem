@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2021 at 12:28 PM
+-- Generation Time: Apr 02, 2021 at 10:22 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -71,7 +71,7 @@ CREATE TABLE `course_information` (
   `course_id` int(11) NOT NULL,
   `course_code` varchar(50) NOT NULL,
   `credits` enum('1','2','3') NOT NULL,
-  `course_title` text NOT NULL,
+  `course_title` varchar(150) NOT NULL DEFAULT '',
   `marks` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -111,7 +111,13 @@ INSERT INTO `course_wise_result` (`course_result_id`, `result_id`, `course_id`, 
 (3, 2, 3, 3.5, 0),
 (4, 2, 4, 3.5, 0),
 (5, 3, 5, 3.5, 0),
-(6, 3, 6, 3.5, 0);
+(6, 3, 6, 3.5, 0),
+(7, 9, 1, 3, 0),
+(8, 9, 2, 0, 0),
+(9, 9, 3, 2, 1),
+(10, 11, 4, 3, 0),
+(11, 11, 5, 2, 0),
+(12, 11, 6, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -190,7 +196,8 @@ CREATE TABLE `payment` (
 INSERT INTO `payment` (`payment_id`, `about_me_id`, `student_notice_id`) VALUES
 (14, 1, 2),
 (8, 2, 2),
-(1, 6, 2);
+(1, 6, 2),
+(15, 14, 7);
 
 -- --------------------------------------------------------
 
@@ -247,7 +254,7 @@ INSERT INTO `student_notice` (`student_notice_id`, `department_code`, `notice_ye
 (2, '76', '3rd', '1st', 'Payment', 'Admission Payment', 'Dear Students, Your 3rd year admission has been started.You have to pay 2000tk for the admission', '2021-03-16'),
 (3, '79', '2nd', '2nd', 'Exam', 'Yearly Exam', 'AUTO PASS!\r\nNo exam for this pandemic', '2021-03-16'),
 (4, '76', '1st', '2nd', 'Result', 'Exam result', 'Happy to say,for pandemic, all are A+', '2021-03-16'),
-(7, '76', '2nd', '1st', 'Payment', 'Form Fill-up', 'Dear Students,You have to pay 3000tk for the form fill up of your even semester exam', '2021-03-28');
+(7, '50', '2nd', '1st', 'Payment', 'Form Fill-up', 'Dear Students,You have to pay 3000tk for the form fill up of your even semester exam', '2021-03-28');
 
 -- --------------------------------------------------------
 
@@ -290,13 +297,15 @@ ALTER TABLE `about_me`
 -- Indexes for table `course_information`
 --
 ALTER TABLE `course_information`
-  ADD PRIMARY KEY (`course_id`);
+  ADD PRIMARY KEY (`course_id`),
+  ADD UNIQUE KEY `unique_course` (`course_code`,`credits`,`course_title`);
 
 --
 -- Indexes for table `course_wise_result`
 --
 ALTER TABLE `course_wise_result`
   ADD PRIMARY KEY (`course_result_id`),
+  ADD UNIQUE KEY `unique_result` (`result_id`,`course_id`),
   ADD KEY `result_id` (`result_id`),
   ADD KEY `course_id` (`course_id`);
 
@@ -365,13 +374,13 @@ ALTER TABLE `course_information`
 -- AUTO_INCREMENT for table `course_wise_result`
 --
 ALTER TABLE `course_wise_result`
-  MODIFY `course_result_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `course_result_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `payment_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `result`
