@@ -57,7 +57,7 @@ if (!isset($_SESSION['roll'])) {
       <li class="nav-item"><a class="nav-link" href="menu.php"><i class="fa fa-user"></i> Welcome <?php echo $showrow['name']; ?>!</a></li>
       <li class="nav-item"><a class="nav-link" href="notice.php?page=notice"><i class="fa fa-bell"></i> Notice </a></li>
       <li class="nav-item"><a class="nav-link" href="payment.php?page=payment"><i class="fa fa-dollar-sign"></i> Payment </a></li>
-      <li class="nav-item"><a class="nav-link" href="result.php"><i class="fa fa-poll"></i> Result </a></li>
+      <li class="nav-item"><a class="nav-link" href="result-menu.php"><i class="fa fa-poll"></i> Result </a></li>
       <li class="nav-item"><a class="nav-link" href="profile.php?page=profile"><i class="fa fa-user"></i> Profile</a></li>
       <li class="nav-item"><a style="color: red;" class="nav-link" href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
     </ul>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2021 at 01:25 AM
+-- Generation Time: Mar 31, 2021 at 12:28 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -52,14 +52,14 @@ CREATE TABLE `about_me` (
 
 INSERT INTO `about_me` (`about_me_id`, `roll_id`, `name`, `name_father`, `name_mother`, `number`, `blood_group`, `session`, `department_code`, `hall_code`, `gender`, `emergency_number`, `emergency_number_holder`, `photo`, `date_of_birth`) VALUES
 (1, 1712179116, 'Amena Akter', 'Amirul Islam', 'Halima Begum', '01984426189', 'B+', 2017, '79', '21', 'Female', '01984426189', 'Father', '12021-03-25-03-48.png', '1999-07-27'),
-(2, 1810276140, 'Humayun Ahmad Rajib', 'Md Aktaruzzaman', 'Mrs Saleha Khatun', '01796742200', 'AB+', 2018, '76', '02', 'Male', '01521243062', 'Father', '22021-03-25-03-19.png', '1999-03-15'),
-(3, 1810576141, 'Abdur Rahim Sheikh', 'Abdul Kadir Sheikh', 'Kamola Parvin', '01778112915', 'A+', 2018, '76', '05', 'Male', '01732125054', 'Mother', '32021-03-25-03-39.png', '1998-10-31'),
+(2, 1810276140, 'Humayun Ahmad Rajib', 'Md Aktaruzzaman', 'Mrs Saleha Khatun', '01796742200', 'AB+', 2018, '76', '02', 'Male', '01521243062', 'Father', '18102761402021-03-29-03-01.jpg', '1999-03-15'),
+(3, 1810576141, 'Abdur Rahim Sheikh', 'Abdul Kadir Sheikh', 'Kamola Parvin', '01778112915', 'A+', 2018, '76', '05', 'Male', '01732125054', 'Mother', '18105761412021-03-29-03-20.jpg', '1998-10-31'),
 (4, 1810735157, 'Md.Rasel Mia', 'Md.Insan Sayal', 'Parvin Begum', '01945832410', 'B+', 2018, '76', '07', 'Male', '01645549020', 'Father', '42021-03-25-03-58.png', '1998-01-01'),
 (6, 1810976114, 'MD. Mehedi Hasan', 'MD. Rokanuzzaman', 'Sabina Yasmim', '01795003798', 'A+', 2018, '76', '09', 'Male', '01728960868', 'Father', '62021-03-25-03-26.jpg', '1998-11-15'),
 (7, 1812177132, 'Jannatul Ferdosh Juthy', 'MD. Tipu Sultan', 'Sheuly Khatun', '01994873991', 'A+', 2018, '77', '21', 'Female', '01774449283', 'Brother', '72021-03-25-03-42.png', '1999-06-10'),
 (8, 1810877149, 'Nusrat Jahan Konok', 'MD. Kabir Hossain', 'Nasrin Nahar', '01938472391', 'AB+', 2018, '79', '21', 'Female', '01739836612', 'Father', '92021-03-25-03-03.png', '2000-02-17'),
 (9, 1812176135, 'Farhin Mashiat Mayabee', 'Masud Anwar Mamun', 'Monoara Khatun', '01737017208', 'B+', 2017, '76', '21', 'Female', '01737017820', 'Father', '352021-03-25-03-25.jpg', '1999-08-31'),
-(10, 10, 'Rubayet Hasan Arman', 'Masuk', 'Khatun', '01933456789', 'B+', 2017, '76', '02', 'Male', '01712345678', 'Father', '102021-03-27-03-49.png', '2000-01-09');
+(14, 1810976115, 'Farjana', 'Md. Rokanuzzaman', 'Sabina Yasmin', '01737017208', 'B+', 2017, '50', '36', 'Female', '01728960868', 'Father', '18109761152021-03-30-03-34.png', '2000-01-09');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,8 @@ INSERT INTO `course_information` (`course_id`, `course_code`, `credits`, `course
 (2, 'MATH1111', '3', 'Algebra Trigonometry and Vector', '75.00'),
 (3, 'APEE1131', '3', 'Electrical Circuit and Electronics', '75.00'),
 (4, 'CHEM1111', '3', 'Physical and Inorganic Chemistry', '75.00'),
-(5, 'APEE1132', '1', 'Electrical Circuit and Electronics Lab', '25.00');
+(5, 'APEE1132', '1', 'Electrical Circuit and Electronics Lab', '25.00'),
+(6, 'CSE2242', '1', 'Technical writing and Presentation', '25.00');
 
 -- --------------------------------------------------------
 
@@ -105,11 +106,12 @@ CREATE TABLE `course_wise_result` (
 --
 
 INSERT INTO `course_wise_result` (`course_result_id`, `result_id`, `course_id`, `cgpa`, `tried`) VALUES
-(1, 1, 1, 4, 0),
-(2, 1, 2, 3.75, 0),
-(3, 1, 3, 3.25, 1),
-(4, 1, 4, 3, 0),
-(5, 1, 5, 3.5, 0);
+(1, 1, 1, 3.5, 0),
+(2, 1, 2, 3.5, 0),
+(3, 2, 3, 3.5, 0),
+(4, 2, 4, 3.5, 0),
+(5, 3, 5, 3.5, 0),
+(6, 3, 6, 3.5, 0);
 
 -- --------------------------------------------------------
 
@@ -118,7 +120,6 @@ INSERT INTO `course_wise_result` (`course_result_id`, `result_id`, `course_id`, 
 --
 
 CREATE TABLE `department_info` (
-  `department_info_id` int(11) NOT NULL,
   `department_code` varchar(20) NOT NULL,
   `department_name` varchar(100) NOT NULL,
   `department_building` varchar(100) NOT NULL
@@ -128,11 +129,12 @@ CREATE TABLE `department_info` (
 -- Dumping data for table `department_info`
 --
 
-INSERT INTO `department_info` (`department_info_id`, `department_code`, `department_name`, `department_building`) VALUES
-(2, '76', 'CSE', '4th Science Building'),
-(3, '35', 'Marketing', 'Rabindra Bhaban'),
-(4, '77', 'ICE', '4th Science Building'),
-(5, '79', 'EEE', '4th Science Building');
+INSERT INTO `department_info` (`department_code`, `department_name`, `department_building`) VALUES
+('35', 'Marketing', 'Rabindra Bhaban'),
+('50', 'MSE', '4th Science Building'),
+('76', 'CSE', '4th Science Building'),
+('77', 'ICE', '4th Science Building'),
+('79', 'EEE', '4th Science Building');
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,6 @@ INSERT INTO `department_info` (`department_info_id`, `department_code`, `departm
 --
 
 CREATE TABLE `hall_info` (
-  `hall_information_id` int(20) NOT NULL,
   `hall_code` varchar(10) NOT NULL,
   `hall_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -150,24 +151,25 @@ CREATE TABLE `hall_info` (
 -- Dumping data for table `hall_info`
 --
 
-INSERT INTO `hall_info` (`hall_information_id`, `hall_code`, `hall_name`) VALUES
-(1, '01', 'Sher-e Bangla Fazlul Haque Hall'),
-(2, '02', 'Shah Mukhdum Hall'),
-(3, '03', 'Nawab Abdul Latif Hall'),
-(4, '04', 'Syed Amer Ali Hall'),
-(5, '05', 'Shaheed Shamsuzzoha Hall'),
-(6, '06', 'Shaheed Habibur Rahman Hall'),
-(7, '07', 'Matihar Hall'),
-(8, '08', 'Madar Bux Hall'),
-(9, '09', 'Shaheed Suhrawardy Hall'),
-(10, '10', 'Shaheed Ziaur Rahman Hall'),
-(11, '11', 'Bangabandhu Sheikh Mujibur Rahman Hall'),
-(12, '20', 'Monnujan Hall'),
-(13, '21', 'Rokeya Hall'),
-(14, '22', 'Tapshi Rabeya Hall'),
-(15, '23', 'Begum Khaleda Zia hall'),
-(16, '24', 'Rahmatunnisa Hall'),
-(17, '25', 'Bangamata Fazilatunnesa Hall');
+INSERT INTO `hall_info` (`hall_code`, `hall_name`) VALUES
+('01', 'Sher-e Bangla Fazlul Haque Hall'),
+('02', 'Shah Mukhdum Hall'),
+('03', 'Nawab Abdul Latif Hall'),
+('04', 'Syed Amer Ali Hall'),
+('05', 'Shaheed Shamsuzzoha Hall'),
+('06', 'Shaheed Habibur Rahman Hall'),
+('07', 'Matihar Hall'),
+('08', 'Madar Bux Hall'),
+('09', 'Shaheed Suhrawardy Hall'),
+('10', 'Shaheed Ziaur Rahman Hall'),
+('11', 'Bangabandhu Sheikh Mujibur Rahman Hall'),
+('20', 'Monnujan Hall'),
+('21', 'Rokeya Hall'),
+('22', 'Tapshi Rabeya Hall'),
+('23', 'Begum Khaleda Zia hall'),
+('24', 'Rahmatunnisa Hall'),
+('25', 'Bangamata Fazilatunnesa Hall'),
+('36', 'Mehedi Hasan Hall');
 
 -- --------------------------------------------------------
 
@@ -177,19 +179,18 @@ INSERT INTO `hall_info` (`hall_information_id`, `hall_code`, `hall_name`) VALUES
 
 CREATE TABLE `payment` (
   `payment_id` int(20) NOT NULL,
-  `roll_id` int(40) NOT NULL,
-  `student_notice_id` int(20) NOT NULL,
-  `status` enum('Paid','Unpaid') NOT NULL DEFAULT 'Unpaid'
+  `about_me_id` int(20) NOT NULL,
+  `student_notice_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`payment_id`, `roll_id`, `student_notice_id`, `status`) VALUES
-(1, 1712179116, 2, 'Paid'),
-(8, 1810976114, 2, 'Paid'),
-(14, 1810276140, 2, 'Paid');
+INSERT INTO `payment` (`payment_id`, `about_me_id`, `student_notice_id`) VALUES
+(14, 1, 2),
+(8, 2, 2),
+(1, 6, 2);
 
 -- --------------------------------------------------------
 
@@ -199,7 +200,7 @@ INSERT INTO `payment` (`payment_id`, `roll_id`, `student_notice_id`, `status`) V
 
 CREATE TABLE `result` (
   `result_id` int(20) NOT NULL,
-  `roll_id` int(20) NOT NULL,
+  `about_me_id` int(20) NOT NULL,
   `year` enum('1st','2nd','3rd','4th') NOT NULL,
   `semester` enum('1st','2nd') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -208,15 +209,17 @@ CREATE TABLE `result` (
 -- Dumping data for table `result`
 --
 
-INSERT INTO `result` (`result_id`, `roll_id`, `year`, `semester`) VALUES
-(1, 1810976114, '1st', '1st'),
-(2, 1810976114, '1st', '2nd'),
-(3, 1810976114, '2nd', '1st'),
-(4, 1810976114, '2nd', '2nd'),
-(5, 1810976114, '3rd', '1st'),
-(6, 1810976114, '3rd', '2nd'),
-(7, 1810976114, '4th', '1st'),
-(8, 1810976114, '4th', '2nd');
+INSERT INTO `result` (`result_id`, `about_me_id`, `year`, `semester`) VALUES
+(1, 6, '1st', '1st'),
+(2, 6, '1st', '2nd'),
+(3, 6, '2nd', '1st'),
+(4, 6, '2nd', '2nd'),
+(5, 6, '3rd', '1st'),
+(6, 6, '3rd', '2nd'),
+(7, 6, '4th', '1st'),
+(8, 6, '4th', '2nd'),
+(9, 14, '1st', '1st'),
+(11, 14, '2nd', '1st');
 
 -- --------------------------------------------------------
 
@@ -301,14 +304,14 @@ ALTER TABLE `course_wise_result`
 -- Indexes for table `department_info`
 --
 ALTER TABLE `department_info`
-  ADD PRIMARY KEY (`department_info_id`),
+  ADD PRIMARY KEY (`department_code`),
   ADD UNIQUE KEY `department_code` (`department_code`);
 
 --
 -- Indexes for table `hall_info`
 --
 ALTER TABLE `hall_info`
-  ADD PRIMARY KEY (`hall_information_id`),
+  ADD PRIMARY KEY (`hall_code`),
   ADD UNIQUE KEY `hall_code` (`hall_code`);
 
 --
@@ -316,15 +319,17 @@ ALTER TABLE `hall_info`
 --
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`payment_id`),
-  ADD KEY `roll_id` (`roll_id`),
-  ADD KEY `student_notice_id` (`student_notice_id`);
+  ADD UNIQUE KEY `unique_payment` (`about_me_id`,`student_notice_id`),
+  ADD KEY `student_notice_id` (`student_notice_id`),
+  ADD KEY `about_me_id` (`about_me_id`);
 
 --
 -- Indexes for table `result`
 --
 ALTER TABLE `result`
   ADD PRIMARY KEY (`result_id`),
-  ADD KEY `roll_id` (`roll_id`);
+  ADD UNIQUE KEY `unique_result_id` (`about_me_id`,`year`,`semester`),
+  ADD KEY `about_me_id` (`about_me_id`);
 
 --
 -- Indexes for table `student_notice`
@@ -348,31 +353,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `about_me`
 --
 ALTER TABLE `about_me`
-  MODIFY `about_me_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `about_me_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `course_information`
 --
 ALTER TABLE `course_information`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `course_wise_result`
 --
 ALTER TABLE `course_wise_result`
-  MODIFY `course_result_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `department_info`
---
-ALTER TABLE `department_info`
-  MODIFY `department_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `hall_info`
---
-ALTER TABLE `hall_info`
-  MODIFY `hall_information_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `course_result_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -384,7 +377,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `result`
 --
 ALTER TABLE `result`
-  MODIFY `result_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `result_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `student_notice`
@@ -413,21 +406,21 @@ ALTER TABLE `about_me`
 -- Constraints for table `course_wise_result`
 --
 ALTER TABLE `course_wise_result`
-  ADD CONSTRAINT `course_wise_result_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course_information` (`course_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `course_wise_result_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course_information` (`course_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `course_wise_result_ibfk_2` FOREIGN KEY (`result_id`) REFERENCES `result` (`result_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`roll_id`) REFERENCES `about_me` (`roll_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`student_notice_id`) REFERENCES `student_notice` (`student_notice_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`student_notice_id`) REFERENCES `student_notice` (`student_notice_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `payment_ibfk_3` FOREIGN KEY (`about_me_id`) REFERENCES `about_me` (`about_me_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `result`
 --
 ALTER TABLE `result`
-  ADD CONSTRAINT `result_ibfk_1` FOREIGN KEY (`roll_id`) REFERENCES `about_me` (`roll_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `result_ibfk_1` FOREIGN KEY (`about_me_id`) REFERENCES `about_me` (`about_me_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_notice`

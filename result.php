@@ -1,31 +1,18 @@
 <?php 
-    include'main/result_header.php'
+  $corepage = explode('/', $_SERVER['PHP_SELF']);
+    $corepage = end($corepage);
+    if ($corepage!=='result-menu.php') {
+      if ($corepage==$corepage) {
+        $corepage = explode('.', $corepage);
+       header('Location: result-menu.php?page='.$corepage[0]);
+     }
+    }
 ?>
-  </div>
-<link rel="stylesheet" href="CSS/result.css">
-
-
-
-  <div class="top-bar">
-      <center>
-        <h1>Result Board</h1>
-        
-        <?php 
-            $query = "select name from about_me where  roll_id = '$_SESSION[roll]' ";
-            $query_run = mysqli_query($db_con,$query);
-            if($row = mysqli_fetch_assoc($query_run)){
-                ?>
-                <h2 class="wrong">
-                    <?php echo $row['name']; ?>
-                </h2>
-                <?php 
-            }
-            ?>
-            <h3>Results Overview</h3>
-    </center>
-  </div>
-  <div class="result-bar">
-	    	    
+<br>
+<h1 class="year-sem">Result Board</h1>
+<br>
+  <div class="container">
+      
                     <?php 
                     
                       $result_query = "SELECT AVG(cgpa) as avg_cgpa FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
@@ -174,7 +161,7 @@
 					        }
                            echo"<tr>"; 
                        }
-
+                  echo "</table>";
                   ?>
     </div>
 

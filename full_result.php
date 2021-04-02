@@ -1,13 +1,19 @@
 <?php 
-    include'main/result_header.php'
+  $corepage = explode('/', $_SERVER['PHP_SELF']);
+    $corepage = end($corepage);
+    if ($corepage!=='result-menu.php') {
+      if ($corepage==$corepage) {
+        $corepage = explode('.', $corepage);
+       header('Location: result-menu.php?page='.$corepage[0]);
+     }
+    }
 ?>
-</div>
-<link rel="stylesheet" href="CSS/result.css">
 
-<div >
+    
 
 
-
+    <br>
+    <br>
    <center><h2>Result of all Courses</h2></center> 
     <br>
     <br>

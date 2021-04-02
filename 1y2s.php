@@ -1,6 +1,14 @@
 <?php 
-    include'main/result_header.php'
+  $corepage = explode('/', $_SERVER['PHP_SELF']);
+    $corepage = end($corepage);
+    if ($corepage!=='result-menu.php') {
+      if ($corepage==$corepage) {
+        $corepage = explode('.', $corepage);
+       header('Location: result-menu.php?page='.$corepage[0]);
+     }
+    }
 ?>
+        <br>
         <h3 class="year-sem">First Year <br>Second Semester</h3>
         <?php 
 
@@ -19,7 +27,7 @@
                 }
             ?>
 </div>
-<link rel="stylesheet" href="CSS/result.css">
+
 <div>
 
         <?php 

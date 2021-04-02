@@ -1,7 +1,16 @@
 <?php 
-    include'main/result_header.php'
+  $corepage = explode('/', $_SERVER['PHP_SELF']);
+    $corepage = end($corepage);
+    if ($corepage!=='result-menu.php') {
+      if ($corepage==$corepage) {
+        $corepage = explode('.', $corepage);
+       header('Location: result-menu.php?page='.$corepage[0]);
+     }
+    }
 ?>
+        <br>
         <h3 class="year-sem">First Year <br>First Semester</h3>
+        <br>
          <?php 
 
             $result_query = "SELECT AVG(cgpa) as avg_cgpa FROM about_me,result,course_wise_result WHERE about_me.roll_id = '$_SESSION[roll]' AND
@@ -19,7 +28,6 @@
                 }
         ?>
 </div>
-<link rel="stylesheet" href="CSS/result.css">
 <div>
 
         <?php 
